@@ -11,29 +11,22 @@ entry=tk.Entry(rooot,font=("Arial",20),width=20,borderwidth=15,bg='green', fg='w
 entry.grid(row=0,column=0,padx=10,pady=10,columnspan=5 ,sticky="nsew")
 
 def button_click(number):
-    # መጀመሪያ በሳጥኑ ውስጥ ያለውን ቁጥር ለጊዜው "current" በሚል ስም ያዘው
+    
     current = entry.get()
-    
-    # የቆየውን ቁጥር አጥፋው (አዲስ ለመጻፍ እንዲመች)
     entry.delete(0, tk.END)
-    
-    # የቆየውን እና አዲሱን ቁጥር አቀጣጥለህ ጻፈው
     entry.insert(0, str(current) + str(number))
 
-# 1. አንድ ቁጥር ብቻ ወደኋላ ለማጥፋት (Back)
 def button_back():
     current = entry.get()
     entry.delete(0, tk.END)
-    entry.insert(0, current[:-1]) # የመጨረሻዋን አንድ ቁጥር ብቻ ይቆርጣል
+    entry.insert(0, current[:-1]) 
 
 
-# 1. መጻፊያ ሳጥኑን ሙሉ በሙሉ ለማጥፋት (CE ወይም Cancel)
+
 def button_clear():
     entry.delete(0, tk.END)
 
 
-
-# 3. ስኩዌር ሩት ለመስራት (Radical)
 def button_sqrt():
     try:
         current = entry.get()
@@ -44,7 +37,7 @@ def button_sqrt():
         entry.delete(0, tk.END)
         entry.insert(0, "Error")
 
-# 4. ፐርሰንት ለመስራት (%)
+
 def button_percent():
     try:
         current = entry.get()
@@ -57,12 +50,12 @@ def button_percent():
 
 def button_equal():
     try:
-        # በሳጥኑ ውስጥ ያለውን ሂሳብ (ለምሳሌ "5+5") ያነባል
+        
         result = eval(entry.get())
         entry.delete(0, tk.END)
         entry.insert(0, str(result))
     except:
-        # ስህተት ከሰራህ (ለምሳሌ "5++5" ካልህ) Error ይላል
+        
         entry.delete(0, tk.END)
         entry.insert(0, "Error")
 #column_0
